@@ -3,13 +3,13 @@ import Profile3D from "@/components/Profile3D";
 
 const stats = [
   { label: "Research Papers", value: "1+" },
-  { label: "Years Experience", value: "2+" },
-  { label: "Languages", value: "3" },
+  { label: "Years Experience", value: "3+" },
+  { label: "Languages", value: "4" },
 ];
 
 export default function Home() {
   return (
-    <section className="relative flex min-h-[calc(100vh-73px)] items-center overflow-hidden">
+    <section className="relative flex min-h-[calc(100vh-73px)] items-start overflow-hidden pt-6 sm:pt-10">
       {/* Decorative elements */}
       <div className="pointer-events-none absolute inset-0">
         {/* Large glow orb */}
@@ -26,7 +26,7 @@ export default function Home() {
         />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-6 py-24">
+      <div className="relative mx-auto max-w-6xl px-6 py-6 sm:py-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_380px] lg:items-center lg:gap-10">
           {/* Left content */}
           <div className="min-w-0 rounded-2xl border border-border/30 bg-surface/10 p-6 backdrop-blur-[1px] sm:p-8">
@@ -47,7 +47,7 @@ export default function Home() {
               </span>
             </div>
 
-            <h1 className="animate-fade-in-up animation-delay-200 mb-6 leading-[1.1] tracking-tight">
+            <h1 className="animate-fade-in-up animation-delay-200 mb-6 leading-[1.1] tracking-tight text-foreground">
               <span className="text-xl font-medium sm:text-2xl md:text-3xl">Hi, I&apos;m</span>{" "}
               <span className="gradient-text text-3xl font-bold sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl">Hrang Kap Lian</span>
             </h1>

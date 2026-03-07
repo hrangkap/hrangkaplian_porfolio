@@ -20,14 +20,8 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-border bg-background/60 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="group flex items-center gap-2">
-          <span
-            className="flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold text-white"
-            style={{ backgroundColor: "var(--accent)" }}
-          >
-            HK
-          </span>
-          <span className="text-lg font-bold tracking-tight">Lian</span>
+        <Link href="/" className="block h-8 w-8" aria-label="Home">
+          <span className="sr-only">Home</span>
         </Link>
 
         {/* Desktop nav */}

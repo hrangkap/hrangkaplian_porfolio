@@ -48,7 +48,7 @@ export default function ThemeCustomizer() {
       {/* Floating toggle button */}
       <button
         onClick={() => setOpen(!open)}
-        className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-border bg-surface shadow-lg transition-all hover:scale-110"
+        className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-border bg-surface text-foreground shadow-lg transition-all hover:scale-110"
         aria-label="Customize theme"
         style={{ boxShadow: `0 0 20px var(--accent-glow)` }}
       >
@@ -71,7 +71,7 @@ export default function ThemeCustomizer() {
         }`}
       >
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="text-sm font-bold uppercase tracking-wider">
+          <h3 className="text-sm font-bold uppercase tracking-wider text-foreground">
             Customize
           </h3>
           <button
