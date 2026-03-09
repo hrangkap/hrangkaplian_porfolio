@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-border bg-background/60 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 2xl:max-w-7xl min-[2000px]:max-w-[1600px]">
         <Link href="/" className="block h-8 w-8" aria-label="Home">
           <span className="sr-only">Home</span>
         </Link>

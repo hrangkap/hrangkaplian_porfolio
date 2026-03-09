@@ -54,7 +54,7 @@ const education = [
 function SectionHeader({ title }: { title: string }) {
   return (
     <div className="mb-6 sm:mb-8">
-      <h2 className="text-xl font-bold tracking-tight text-foreground sm:text-2xl md:text-3xl">{title}</h2>
+      <h2 className="text-xl font-bold tracking-tight text-foreground sm:text-2xl md:text-3xl 2xl:text-4xl min-[2000px]:text-5xl">{title}</h2>
       <div className="mt-2 h-0.5 w-12 rounded-full" style={{ backgroundColor: "var(--accent)" }} />
     </div>
   );
@@ -158,7 +158,7 @@ export default function AboutPage() {
       </nav>
 
       {/* Content */}
-      <div className="relative z-[2] mx-auto max-w-4xl px-5 pr-10 sm:px-8 sm:pr-14 xl:pr-8">
+      <div className="relative z-[2] mx-auto max-w-4xl px-5 pr-10 sm:px-8 sm:pr-14 xl:pr-8 2xl:max-w-6xl min-[2000px]:max-w-[1400px]">
         {/* 1. INTRO */}
         <section id="intro" className={sectionClass("intro")}>
           <p
@@ -167,10 +167,10 @@ export default function AboutPage() {
           >
             Get to know me
           </p>
-          <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
+          <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl min-[2000px]:text-8xl">
             About <span className="gradient-text">Me</span>
           </h1>
-          <div className="rounded-2xl border border-border bg-surface p-5 sm:p-6 md:p-8">
+          <div className="rounded-2xl border border-border bg-surface p-5 sm:p-6 md:p-8 min-[2000px]:p-12">
             <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:gap-8">
               {/* Oval profile image */}
               <div className="shrink-0">
@@ -193,7 +193,7 @@ export default function AboutPage() {
                     }}
                   />
                   {/* Image */}
-                  <div className="relative h-[200px] w-[160px] overflow-hidden rounded-[50%] bg-background sm:h-[230px] sm:w-[180px]">
+                  <div className="relative h-[200px] w-[160px] overflow-hidden rounded-[50%] bg-background sm:h-[230px] sm:w-[180px] 2xl:h-[280px] 2xl:w-[220px] min-[2000px]:h-[340px] min-[2000px]:w-[260px]">
                     <Image
                       src="/images/about-profile.jpeg"
                       alt="Hrang Kap Lian"
@@ -206,7 +206,7 @@ export default function AboutPage() {
               </div>
 
               {/* Text */}
-              <div className="min-w-0 space-y-4 text-sm leading-[1.8] text-foreground sm:text-base sm:leading-[1.9] md:text-[17px]">
+              <div className="min-w-0 space-y-4 text-sm leading-[1.8] text-foreground sm:text-base sm:leading-[1.9] md:text-[17px] 2xl:text-lg 2xl:leading-[2] min-[2000px]:text-xl min-[2000px]:leading-[2.1]">
                 <p className="text-justify">
                   An AI engineer and
                   software developer with a background in data science, machine learning, and algorithm
@@ -233,25 +233,25 @@ export default function AboutPage() {
         {/* 2. SKILLS */}
         <section id="skills" className={sectionClass("skills")}>
           <SectionHeader title="Skills & Tech Stack" />
-          <div className="grid gap-2 sm:grid-cols-2 sm:gap-3">
+          <div className="grid gap-2 sm:grid-cols-2 sm:gap-3 min-[2000px]:gap-5">
             {skillCategories.map((cat) => (
               <div
                 key={cat.title}
-                className={`rounded-2xl border border-border bg-surface p-4 sm:p-5 ${
+                className={`rounded-2xl border border-border bg-surface p-4 sm:p-5 min-[2000px]:p-8 ${
                   cat.title === "Tools & Platforms" ? "sm:col-span-2" : ""
                 }`}
               >
                 <h3
-                  className="mb-2.5 text-[10px] font-bold uppercase tracking-[0.15em] sm:text-xs"
+                  className="mb-2.5 text-[10px] font-bold uppercase tracking-[0.15em] sm:text-xs min-[2000px]:text-sm min-[2000px]:mb-4"
                   style={{ color: "var(--accent)" }}
                 >
                   {cat.title}
                 </h3>
-                <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 min-[2000px]:gap-3">
                   {cat.items.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-lg border border-border bg-background px-2 py-1 text-[11px] font-medium text-foreground sm:px-3 sm:py-1.5 sm:text-xs"
+                      className="rounded-lg border border-border bg-background px-2 py-1 text-[11px] font-medium text-foreground sm:px-3 sm:py-1.5 sm:text-xs min-[2000px]:px-4 min-[2000px]:py-2 min-[2000px]:text-sm"
                     >
                       {skill}
                     </span>
@@ -265,13 +265,13 @@ export default function AboutPage() {
         {/* 4. EDUCATION */}
         <section id="education" className={sectionClass("education")}>
           <SectionHeader title="Education" />
-          <div className="space-y-3 sm:space-y-4">
+          <div className="space-y-3 sm:space-y-4 min-[2000px]:space-y-6">
             {education.map((edu, i) => (
-              <div key={i} className="rounded-2xl border border-border bg-surface p-5 sm:p-6">
+              <div key={i} className="rounded-2xl border border-border bg-surface p-5 sm:p-6 min-[2000px]:p-10">
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                   <div className="min-w-0">
-                    <h3 className="text-base font-bold text-foreground sm:text-lg">{edu.degree}</h3>
-                    <p className="text-xs text-muted sm:text-sm">{edu.school}</p>
+                    <h3 className="text-base font-bold text-foreground sm:text-lg min-[2000px]:text-2xl">{edu.degree}</h3>
+                    <p className="text-xs text-muted sm:text-sm min-[2000px]:text-base">{edu.school}</p>
                   </div>
                   {edu.gpa && (
                     <span
@@ -282,10 +282,10 @@ export default function AboutPage() {
                     </span>
                   )}
                 </div>
-                <p className="mt-3 text-xs leading-relaxed text-muted sm:text-sm">{edu.details}</p>
+                <p className="mt-3 text-xs leading-relaxed text-muted sm:text-sm min-[2000px]:text-base min-[2000px]:mt-5">{edu.details}</p>
                 {edu.publication && (
                   <div className="mt-3 rounded-xl border-l-4 bg-accent/5 py-2.5 pl-4 pr-3" style={{ borderColor: "var(--accent)" }}>
-                    <p className="text-[11px] font-medium text-muted sm:text-xs">{edu.publication}</p>
+                    <p className="text-[11px] font-medium text-muted sm:text-xs min-[2000px]:text-sm">{edu.publication}</p>
                   </div>
                 )}
               </div>
@@ -295,23 +295,23 @@ export default function AboutPage() {
 
         {/* CV */}
         <section id="cv" className={sectionClass("cv")}>
-          <div className="flex flex-col items-center rounded-2xl border border-border bg-surface p-8 text-center sm:p-10 md:p-14">
+          <div className="flex flex-col items-center rounded-2xl border border-border bg-surface p-8 text-center sm:p-10 md:p-14 min-[2000px]:p-20">
             <div
-              className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl sm:mb-6 sm:h-20 sm:w-20"
+              className="mb-5 flex h-16 w-16 items-center justify-center rounded-2xl sm:mb-6 sm:h-20 sm:w-20 min-[2000px]:h-24 min-[2000px]:w-24"
               style={{ backgroundColor: "var(--accent-glow)" }}
             >
               <svg className="h-8 w-8 sm:h-10 sm:w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: "var(--accent)" }}>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
-            <h2 className="mb-2 text-xl font-bold text-foreground sm:text-2xl md:text-3xl">Download My CV</h2>
-            <p className="mx-auto mb-6 max-w-md text-xs text-muted sm:mb-8 sm:text-sm">
+            <h2 className="mb-2 text-xl font-bold text-foreground sm:text-2xl md:text-3xl min-[2000px]:text-4xl">Download My CV</h2>
+            <p className="mx-auto mb-6 max-w-md text-xs text-muted sm:mb-8 sm:text-sm min-[2000px]:text-base min-[2000px]:max-w-lg">
               Visitors can download my full academic and professional CV for more details about my background, research, and experience.
             </p>
             <Link
               href="/cv.pdf"
               target="_blank"
-              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-bold text-white transition-all hover:scale-105 sm:px-8 sm:py-3.5"
+              className="inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-bold text-white transition-all hover:scale-105 sm:px-8 sm:py-3.5 min-[2000px]:px-10 min-[2000px]:py-4 min-[2000px]:text-lg"
               style={{ backgroundColor: "var(--accent)" }}
             >
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

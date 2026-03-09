@@ -4,12 +4,14 @@ import { useRef, useState, useCallback } from "react";
 import Image from "next/image";
 
 interface Profile3DProps {
-  size?: "sm" | "lg";
+  size?: "sm" | "lg" | "xl" | "2xl";
 }
 
 const sizes = {
   sm: { width: 220, height: 280, ring: 260 },
   lg: { width: 320, height: 420, ring: 360 },
+  xl: { width: 380, height: 500, ring: 420 },
+  "2xl": { width: 440, height: 580, ring: 480 },
 };
 
 export default function Profile3D({ size = "lg" }: Profile3DProps) {

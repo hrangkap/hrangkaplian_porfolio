@@ -91,8 +91,8 @@ function ExperienceCard({ job, index }: { job: typeof experience[number]; index:
   return (
     <div ref={ref} className="relative flex">
       {/* Left: Period */}
-      <div className="hidden w-[140px] shrink-0 pt-5 text-right sm:block md:w-[180px]">
-        <span className="text-sm font-bold text-foreground">{job.period}</span>
+      <div className="hidden w-[140px] shrink-0 pt-5 text-right sm:block md:w-[180px] 2xl:w-[220px] min-[2000px]:w-[280px]">
+        <span className="text-sm font-bold text-foreground min-[2000px]:text-base">{job.period}</span>
         {job.company && (
           <p className="mt-0.5 text-xs text-muted">{job.company}</p>
         )}
@@ -127,7 +127,7 @@ function ExperienceCard({ job, index }: { job: typeof experience[number]; index:
           inView ? "translate-x-0 opacity-100" : "translate-x-12 opacity-0"
         }`}
       >
-        <div className="p-5 sm:p-6">
+        <div className="p-5 sm:p-6 min-[2000px]:p-10">
           {/* Mobile: period + company + location */}
           <div className="mb-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 sm:hidden">
             <span className="text-xs font-medium text-muted">{job.period}</span>
@@ -140,7 +140,7 @@ function ExperienceCard({ job, index }: { job: typeof experience[number]; index:
           </div>
 
           <div className="mb-1 flex flex-wrap items-center gap-2">
-            <h3 className="text-base font-bold text-foreground sm:text-lg">{job.role}</h3>
+            <h3 className="text-base font-bold text-foreground sm:text-lg min-[2000px]:text-2xl">{job.role}</h3>
             {job.current && (
               <span className="hidden rounded-full bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold uppercase text-emerald-500 sm:inline-block">
                 Current
@@ -154,13 +154,13 @@ function ExperienceCard({ job, index }: { job: typeof experience[number]; index:
             </p>
           )}
 
-          <p className="mb-4 text-xs leading-relaxed text-muted sm:text-sm">
+          <p className="mb-4 text-xs leading-relaxed text-muted sm:text-sm min-[2000px]:text-base min-[2000px]:mb-6">
             {job.description}
           </p>
 
-          <ul className="mb-4 space-y-1.5">
+          <ul className="mb-4 space-y-1.5 min-[2000px]:mb-6 min-[2000px]:space-y-2.5">
             {job.highlights.map((h, j) => (
-              <li key={j} className="flex items-start gap-2 text-xs leading-relaxed text-muted sm:text-sm">
+              <li key={j} className="flex items-start gap-2 text-xs leading-relaxed text-muted sm:text-sm min-[2000px]:text-base">
                 <span className="mt-[6px] h-1.5 w-1.5 shrink-0 rounded-full" style={{ backgroundColor: "var(--accent)" }} />
                 {h}
               </li>
@@ -171,7 +171,7 @@ function ExperienceCard({ job, index }: { job: typeof experience[number]; index:
             {job.tech.map((t) => (
               <span
                 key={t}
-                className="rounded-md border border-border bg-background px-2 py-0.5 text-[10px] font-medium text-muted sm:text-xs"
+                className="rounded-md border border-border bg-background px-2 py-0.5 text-[10px] font-medium text-muted sm:text-xs min-[2000px]:px-3 min-[2000px]:py-1 min-[2000px]:text-sm"
               >
                 {t}
               </span>
@@ -188,7 +188,7 @@ export default function ExperiencePage() {
     <>
       <div className="pointer-events-none fixed inset-0 z-[1] bg-background/70" />
 
-      <div className="relative z-[2] mx-auto max-w-4xl px-5 sm:px-8">
+      <div className="relative z-[2] mx-auto max-w-4xl px-5 sm:px-8 2xl:max-w-6xl min-[2000px]:max-w-[1400px]">
         {/* Header */}
         <div className="pt-16 pb-10 sm:pt-24 sm:pb-14">
           <p
@@ -197,7 +197,7 @@ export default function ExperiencePage() {
           >
             Career Journey
           </p>
-          <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
+          <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl min-[2000px]:text-8xl">
             Professional <span className="gradient-text">Experience</span>
           </h1>
           <p className="max-w-2xl text-sm text-muted sm:text-base md:text-lg">

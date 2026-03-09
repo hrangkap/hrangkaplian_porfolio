@@ -33,7 +33,7 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 py-8 sm:flex-row sm:justify-between">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 py-8 sm:flex-row sm:justify-between 2xl:max-w-7xl min-[2000px]:max-w-[1600px]">
         <p className="text-sm text-muted">
           &copy; {new Date().getFullYear()} Hrang Kap Lian. All rights reserved.
         </p>

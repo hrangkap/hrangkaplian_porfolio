@@ -74,7 +74,7 @@ export default function ContactPage() {
     <>
       <div className="pointer-events-none fixed inset-0 z-[1] bg-background/70" />
 
-      <div className="relative z-[2] mx-auto max-w-5xl px-5 sm:px-8">
+      <div className="relative z-[2] mx-auto max-w-5xl px-5 sm:px-8 2xl:max-w-6xl min-[2000px]:max-w-[1400px]">
         {/* Header */}
         <div className="pt-16 pb-10 sm:pt-24 sm:pb-14">
           <p
@@ -83,7 +83,7 @@ export default function ContactPage() {
           >
             Let&apos;s Connect
           </p>
-          <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl">
+          <h1 className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl min-[2000px]:text-8xl">
             Get In <span className="gradient-text">Touch</span>
           </h1>
           <p className="max-w-2xl text-sm text-muted sm:text-base md:text-lg">
@@ -92,13 +92,13 @@ export default function ContactPage() {
         </div>
 
         {/* Content */}
-        <div className="grid gap-6 pb-16 lg:grid-cols-[1fr_1.2fr] lg:gap-8">
+        <div className="grid gap-6 pb-16 lg:grid-cols-[1fr_1.2fr] lg:gap-8 min-[2000px]:gap-12">
           {/* Left — Info & Links */}
           <div className="space-y-4 sm:space-y-5">
             {/* Contact details */}
-            <div className="rounded-2xl border border-border bg-surface p-5 sm:p-6">
+            <div className="rounded-2xl border border-border bg-surface p-5 sm:p-6 min-[2000px]:p-8">
               <h2
-                className="mb-4 text-[10px] font-bold uppercase tracking-[0.15em] sm:text-xs"
+                className="mb-4 text-[10px] font-bold uppercase tracking-[0.15em] sm:text-xs min-[2000px]:text-sm min-[2000px]:mb-6"
                 style={{ color: "var(--accent)" }}
               >
                 Contact Info
@@ -131,9 +131,9 @@ export default function ContactPage() {
             </div>
 
             {/* Social links */}
-            <div className="rounded-2xl border border-border bg-surface p-5 sm:p-6">
+            <div className="rounded-2xl border border-border bg-surface p-5 sm:p-6 min-[2000px]:p-8">
               <h2
-                className="mb-4 text-[10px] font-bold uppercase tracking-[0.15em] sm:text-xs"
+                className="mb-4 text-[10px] font-bold uppercase tracking-[0.15em] sm:text-xs min-[2000px]:text-sm min-[2000px]:mb-6"
                 style={{ color: "var(--accent)" }}
               >
                 Find Me Online
@@ -155,7 +155,7 @@ export default function ContactPage() {
             </div>
 
             {/* Availability */}
-            <div className="rounded-2xl border border-border bg-surface p-5 sm:p-6">
+            <div className="rounded-2xl border border-border bg-surface p-5 sm:p-6 min-[2000px]:p-8">
               <div className="flex items-center gap-3">
                 <span className="relative flex h-3 w-3">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
@@ -173,7 +173,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right — Contact Form */}
-          <div className="rounded-2xl border border-border bg-surface p-5 sm:p-6 md:p-8">
+          <div className="rounded-2xl border border-border bg-surface p-5 sm:p-6 md:p-8 min-[2000px]:p-12">
             <h2
               className="mb-5 text-[10px] font-bold uppercase tracking-[0.15em] sm:mb-6 sm:text-xs"
               style={{ color: "var(--accent)" }}
