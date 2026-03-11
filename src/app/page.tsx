@@ -10,6 +10,42 @@ const stats = [
   { label: "Languages", value: "4" },
 ];
 
+function useVisitorCount() {
+  const [count, setCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    const DEVICE_KEY = "portfolio-device-id";
+    let deviceId = localStorage.getItem(DEVICE_KEY);
+    const isNew = !deviceId;
+
+    if (!deviceId) {
+      // Generate a unique device ID and persist forever
+      deviceId = crypto.randomUUID();
+      localStorage.setItem(DEVICE_KEY, deviceId);
+    }
+
+    if (isNew) {
+      // New device — increment count
+      fetch("/api/visitors", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ deviceId }),
+      })
+        .then((res) => res.json())
+        .then((data) => { if (data.count != null) setCount(data.count); })
+        .catch(() => {});
+    } else {
+      // Returning device — just read count
+      fetch("/api/visitors")
+        .then((res) => res.json())
+        .then((data) => { if (data.count != null) setCount(data.count); })
+        .catch(() => {});
+    }
+  }, []);
+
+  return count;
+}
+
 function ResponsiveProfile() {
   const [profileSize, setProfileSize] = useState<"lg" | "xl" | "2xl">("lg");
 
@@ -29,6 +65,13 @@ function ResponsiveProfile() {
 }
 
 export default function Home() {
+  const visitorCount = useVisitorCount();
+
+  const allStats = [
+    ...stats,
+    { label: "Profile Visitors", value: visitorCount != null ? `${visitorCount}` : "..." },
+  ];
+
   return (
     <section className="relative flex min-h-[calc(100vh-73px)] items-start overflow-hidden pt-6 sm:pt-10">
       {/* Decorative elements */}
@@ -106,7 +149,7 @@ export default function Home() {
 
             {/* Stats */}
             <div className="animate-fade-in-up animation-delay-800 flex gap-8">
-              {stats.map((stat) => (
+              {allStats.map((stat) => (
                 <div key={stat.label}>
                   <p
                     className="text-glow text-2xl font-bold sm:text-3xl 2xl:text-4xl min-[2000px]:text-5xl"
