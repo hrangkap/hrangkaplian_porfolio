@@ -5,6 +5,7 @@ import ThemeCustomizer from "@/components/ThemeCustomizer";
 import BackgroundRenderer from "@/components/BackgroundRenderer";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import DynamicFavicon from "@/components/DynamicFavicon";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -21,6 +22,9 @@ export const metadata: Metadata = {
   title: "Hrang Kap Lian | Algorithm Engineer & AI Researcher",
   description:
     "Portfolio of Hrang Kap Lian — Algorithm Engineer specializing in Explainable AI, human-AI decision-making, and socio-technical systems.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -34,6 +38,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground antialiased`}
       >
         <ThemeProvider>
+          <DynamicFavicon />
           <BackgroundRenderer />
           <Navbar />
           <main className="relative z-10 min-h-screen pt-[73px]">{children}</main>
