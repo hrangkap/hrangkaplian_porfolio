@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import ThemeProvider from "@/components/ThemeProvider";
-import ThemeCustomizer from "@/components/ThemeCustomizer";
 import BackgroundRenderer from "@/components/BackgroundRenderer";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DynamicFavicon from "@/components/DynamicFavicon";
+import ChatWidget from "@/components/ChatWidget";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -43,7 +43,7 @@ export default function RootLayout({
           <Navbar />
           <main className="relative z-10 min-h-screen pt-[73px]">{children}</main>
           <Footer />
-          <ThemeCustomizer />
+          <ChatWidget />
         </ThemeProvider>
       </body>
     </html>

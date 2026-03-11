@@ -42,3 +42,5 @@ next-env.d.ts
 
 # large media files
 *.mov
+
+.env.local

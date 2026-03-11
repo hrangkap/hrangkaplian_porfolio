@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import ThemeCustomizer from "./ThemeCustomizer";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -15,14 +16,63 @@ const navLinks = [
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [themeOpen, setThemeOpen] = useState(false);
+  const themeRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+
+  // Close theme panel when clicking outside
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (themeRef.current && !themeRef.current.contains(e.target as Node)) {
+        setThemeOpen(false);
+      }
+    }
+    if (themeOpen) document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [themeOpen]);
 
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-border bg-background/60 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 2xl:max-w-7xl min-[2000px]:max-w-[1600px]">
-        <Link href="/" className="block h-8 w-8" aria-label="Home">
-          <span className="sr-only">Home</span>
-        </Link>
+        {/* Left side: Logo + Theme button */}
+        <div className="flex items-center gap-3">
+          <Link href="/" className="block h-8 w-8" aria-label="Home">
+            <span className="sr-only">Home</span>
+          </Link>
+
+          {/* Theme toggle */}
+          <div ref={themeRef} className="relative">
+            <button
+              onClick={() => setThemeOpen(!themeOpen)}
+              className={`flex h-8 w-8 items-center justify-center rounded-lg border transition-all ${
+                themeOpen
+                  ? "border-accent bg-accent/10 text-accent"
+                  : "border-border text-muted hover:text-foreground hover:border-accent/50"
+              }`}
+              aria-label="Customize theme"
+            >
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+                />
+              </svg>
+            </button>
+
+            {/* Theme panel dropdown */}
+            <div
+              className={`absolute left-0 top-full mt-2 transition-all duration-200 ${
+                themeOpen
+                  ? "translate-y-0 opacity-100"
+                  : "pointer-events-none -translate-y-2 opacity-0"
+              }`}
+            >
+              <ThemeCustomizer onClose={() => setThemeOpen(false)} />
+            </div>
+          </div>
+        </div>
 
         {/* Desktop nav */}
         <ul className="hidden gap-1 md:flex">

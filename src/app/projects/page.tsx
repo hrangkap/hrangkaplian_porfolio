@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 
-type Category = "All" | "IoT" | "AI / ML" | "Web Dev";
+type Category = "All" | "IoT" | "AI / ML" | "Web Dev" | "Automation";
 
 interface Project {
   title: string;
@@ -15,7 +15,7 @@ interface Project {
   volunteer?: boolean;
 }
 
-const categories: Category[] = ["All", "IoT", "AI / ML", "Web Dev"];
+const categories: Category[] = ["All", "IoT", "AI / ML", "Web Dev", "Automation"];
 
 const projects: Project[] = [
   {
@@ -54,12 +54,22 @@ const projects: Project[] = [
     volunteer: true,
   },
   {
+    title: "AI Portfolio Chatbot",
+    description:
+      "An AI-powered assistant integrated into this portfolio using n8n workflow automation and Google Gemini. Visitors can ask about Lian's skills, experience, and projects in real time. Features theme-reactive styling that syncs with the site's accent color and dark/light mode.",
+    categories: ["AI / ML", "Automation"],
+    tech: ["n8n", "Google Gemini", "Next.js", "TypeScript", "Webhook", "REST API"],
+    github: "https://github.com/hrangkap/hrangkaplian_porfolio",
+    featured: true,
+  },
+  {
     title: "Personal Portfolio",
     description:
       "This portfolio website — built with Next.js and Tailwind CSS, featuring dynamic theming, 3D profile effects, scroll animations, and a fully responsive design for all screen sizes.",
     categories: ["Web Dev"],
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
     github: "https://github.com/hrangkap/hrangkaplian_porfolio",
+    demo: "https://hrangkaplian.com",
   },
 ];
 
