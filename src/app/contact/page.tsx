@@ -60,14 +60,33 @@ export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-    // Simulate send — replace with actual API call later
-    setTimeout(() => {
-      setStatus("sent");
-      setForm({ name: "", email: "", subject: "", message: "" });
-    }, 1200);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "fe7277b2-b070-4d72-a170-d05dacfdb687",
+          name: form.name,
+          email: form.email,
+          subject: form.subject,
+          message: form.message,
+        }),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setStatus("sent");
+        setForm({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -265,6 +284,12 @@ export default function ContactPage() {
                     placeholder="Your message..."
                   />
                 </div>
+
+                {status === "error" && (
+                  <p className="text-sm text-red-500">
+                    Something went wrong. Please try again or email me directly.
+                  </p>
+                )}
 
                 <button
                   type="submit"
